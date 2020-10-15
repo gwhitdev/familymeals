@@ -4,8 +4,7 @@ import List from './List';
 
 const App = () => {
 const [meals, setMeals] = useState([]);
-
-
+console.log(meals);
     return (
         <div className="ui container"style={{marginTop: '10px'}}>
             <Input onFormSubmit={setMeals}/>
