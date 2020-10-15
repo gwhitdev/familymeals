@@ -7,7 +7,6 @@ const Input = ({onFormSubmit}) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(meal);
         onFormSubmit(meal);
     };
 
