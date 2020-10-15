@@ -1,0 +1,6 @@
+<div>
+                   Ingredients:
+                   <ul>
+                       {item.ingredients.map((ingredient) => <li key={ingredient.id}>{ingredient.name}</li>)}
+                    </ul>
+               </div>
