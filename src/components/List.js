@@ -1,11 +1,12 @@
 import React from 'react';
 
 const List = ({ meals }) => {
-    
+    console.log(meals);
     const renderedMeals = meals.map((meal) => {
         return (
-            <div key={meal}>
-                {meal}
+            <div key={meal.name}>
+                
+                {meal.name}
             </div>
         )
     })

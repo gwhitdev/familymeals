@@ -3,12 +3,24 @@ import React, { useState } from 'react';
 
 const Input = ({onFormSubmit}) => {
 
-    const [meal, setMeal] = useState(['meal1']);
+    const [meal, setMeal] = useState({
+        name: '',
+        mainIngredient: ''
+    });
 
-    const onSubmit = (event) => {
-        event.preventDefault();
+    const printValues = e => {
+        e.preventDefault();
+        console.log(meal.name, meal.mainIngredient);
         console.log(meal);
-        onFormSubmit(meals => [...meals, meal]);
+    };
+
+    const submitMeal = e => {
+        e.preventDefault();
+        setMeal({
+            ...meal,
+            [e.target.name]: e.target.value
+        });
+    onFormSubmit((meal) => meal);
     
     };
 
@@ -16,12 +28,25 @@ const Input = ({onFormSubmit}) => {
         <div className="ui segment">
             <h2>Input</h2>
             <div className="ui form" >
-                <form id="inputForm"className="form"onSubmit={onSubmit}>
+                <form id="inputForm"className="form"onSubmit={printValues}>
                     <div className="field">
-                        <input type="text"  onChange={(event) => setMeal(event.target.value)}/>
+                        <input 
+                            type="text"  
+                            name="name"
+                            value={meal.mealname}
+                            onChange={submitMeal}
+                            />
+                    </div>
+                    <div className="field">
+                        <input 
+                            type="text"  
+                            name="mainIngredient"
+                            value={meal.mainIngredient}
+                            onChange={submitMeal}
+                            />
                     </div>
                     
-                        <button onSubmit={onSubmit}className="ui button" type="submit">Add meal</button>
+                        <button onSubmit={submitMeal}className="ui button" type="submit">Add meal</button>
                     
                     
                 </form>
